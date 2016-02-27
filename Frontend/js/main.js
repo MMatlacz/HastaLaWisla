@@ -10,6 +10,12 @@ function initMap() {
         center: {lat: 52.243656, lng: 21.030119},
         zoom: 16,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoomControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false
     });
     getPlaces('pt');
 }
