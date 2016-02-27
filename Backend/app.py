@@ -9,3 +9,4 @@ app.debug = True
 @app.route(app_url + '/places/')
 def get_places():
     pass
+    return "Czy sie komintelo"
