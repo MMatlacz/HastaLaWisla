@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initMap();
 });
 
+var type;
 var map;
 var service;
 var infoWindow;
@@ -30,7 +31,9 @@ function initMap() {
             elementType: 'labels',
             stylers: [{visibility: 'off'}]
         }],
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        disableDefaultUI: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        minZoom: 16
     });
     service = new google.maps.places.PlacesService(map);
     infoWindow = new google.maps.InfoWindow();
@@ -54,13 +57,22 @@ var getDistance = function (p1, p2) {
 };
 
 function performSearch() {
-    var request = {
+    var bar = {
         bounds: map.getBounds(),
         type: 'bar',
         openNow: true
 
     };
-    service.radarSearch(request, callback);
+    var restaurant = {
+        bounds: map.getBounds(),
+        type: 'restaurant',
+        openNow: true
+
+    };
+    var container = [bar, restaurant];
+    for(con in container) {
+        service.nearbySearch(container[con], callback);
+    }
 }
 
 function callback(results, status) {
@@ -76,7 +88,7 @@ function callback(results, status) {
                 con = true;
                 break;
             }
-            if ((getDistance(riverCenter[loc], result.geometry.location) < 1000)) {
+            if ((getDistance(riverCenter[loc], result.geometry.location) < 600)) {
                 addMarker(result);
                 con = false;
             }
@@ -85,14 +97,24 @@ function callback(results, status) {
 }
 
 function addMarker(place) {
+    var image;
+    if(place['types'].indexOf('bar') > -1){
+        image = {
+            url: 'http://yorkshirehogroast.com/wp-content/uploads/2014/05/Catering-Bar-icon.png',
+                anchor: new google.maps.Point(10, 10),
+                scaledSize: new google.maps.Size(30, 30)
+        }
+    } else if(place['types'].indexOf('restaurant') > -1){
+        image = {
+            url: 'https://cdn3.iconfinder.com/data/icons/map/500/restaurant-512.png',
+                anchor: new google.maps.Point(10, 10),
+                scaledSize: new google.maps.Size(30, 30)
+        }
+    }
     var marker = new google.maps.Marker({
         map: map,
         position: place.geometry.location,
-        icon: {
-            url: 'http://yorkshirehogroast.com/wp-content/uploads/2014/05/Catering-Bar-icon.png',
-            anchor: new google.maps.Point(10, 10),
-            scaledSize: new google.maps.Size(10, 17)
-        }
+        icon: image
     });
 
     google.maps.event.addListener(marker, 'click', function () {
