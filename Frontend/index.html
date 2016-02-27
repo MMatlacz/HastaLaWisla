@@ -47,46 +47,58 @@
     </div>
 </script>
 
-<script type="text/html" id="main-screen-template">
+<!--<script type="text/html" id="detail-screen-template">-->
     <div id="container">
         <a class="icon left-icon">
             <img src="./img/icons/back.svg" alt="..." />
         </a>
 
         <div class="header">
-            <h1>Nazwa czegośtam</h1>
+            <a href="${website}"><h1>${name}</h1></a>
         </div>
 
         <div class="info">
             <hr>
-            <h3>Opis tego jakże wspaniałgo miejsca, które jednakowoż nie musi być tak wspaniałe
-            jak to podaje opis ze względu na przyrodzoną ludziom ułomność, chciwość i (czasem)
-            skłonności do przeinaczania Prawdy.</h3>
+            <h3>${description}</h3>
             <hr>
 
-            <p class="hours"><strong>Godziny otwarcia</strong>: <ul>
-                <li>Pon.-Pt.: 11:00-18:00</li>
-                <li>Sob.: 11:00-17:00</li>
-                <li>Nd.: nieczynne</li>
-            </ul></p>
-            <p class="price"><strong>Ceny</strong>: 10-20 zł</p>
+            <p class="link-to-website"><a href="${website}">${website}</a></p>
 
             <div class="gallery">
-                <div class="image"><img src="" alt=""></div>
-                <div class="image"><img src="" alt=""></div>
-                <div class="image"><img src="" alt=""></div>
-                <div class="image"><img src="" alt=""></div>
-                <div class="image"><img src="" alt=""></div>
+                <div class="gallery-image"><img src="img/photos/default.jpg" alt=""></div>
+                <div class="gallery-image"><img src="img/photos/default.jpg" alt=""></div>
+                <div class="gallery-image"><img src="img/photos/default.jpg" alt=""></div>
+            </div>
+
+            <div id="bottom-menu">
+                <div class="hours">
+                    <img src="img/icons/clock2.svg" /><br />
+                    <!--${opening-hours}-->9 - 17
+                </div>
+
+                <div class="price">
+                    <img src="img/icons/coins.svg" /><br />
+                    <!--${price}-->Przystępna
+                </div>
+
+                <div class="jakdojade">
+                    <a href="http://www.jakdojade.pl/">
+                        <img src="img/icons/jakdojade.png" /><br />
+                        Dojazd
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</script>
+<!--</script>-->
 
-<!--<script type="text/html" id="main-screen-template">-->
+<script type="text/html" id="menu-screen-template">
     <div id="kontener">
         <div id="menu-header">
             <h1>Hasta la Wisła</h1>
         </div>
+
+        <p><a href="#"><</a></p>
 
         <table id="main-menu-table">
             <tr>
@@ -103,7 +115,7 @@
             </tr>
         </table>
     </div>
-<!--</script>-->
+</script>
 
 <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC0fyRGllwPtxZdknHd_nPYAuloCYIiF_0'></script>
 <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobubble/src/infobubble.js"></script>

@@ -1,6 +1,6 @@
 @font-face {
     font-family: NexaLight;
-    src: url('./fonts/NexaLight.ttf');
+    src: url('fonts/NexaLight.ttf');
 }
 html, body {
     height: 100%;
@@ -72,9 +72,7 @@ html, body {
     text-align: center;
 }
 
-p.hours, p.price {
 
-}
 
 #container {
     background-color: ;
@@ -120,4 +118,33 @@ td {
 #main-menu-table tr td p {
     text-align: center;
 
+}
+
+#bottom-menu {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#bottom-menu div {
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+}
+
+.gallery .gallery-image {
+    display: inline-block;
+    width: 32%;
+}
+
+.gallery div img {
+    width: 100%;
+}
+
+#bottom-menu div img, #bottom-menu div a img {
+    width: 40px;
+
+}
+
+.link-to-website {
+    text-align: center;
 }
