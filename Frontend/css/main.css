@@ -1,4 +1,7 @@
-
+@font-face {
+    font-family: NexaLight;
+    src: url('./fonts/NexaLight.ttf');
+}
 html, body {
     height: 100%;
     margin: 0;
@@ -78,6 +81,7 @@ p.hours, p.price {
     color: ;
 }
 
+
 hr {
     border-color: ;
 }
@@ -110,4 +114,10 @@ td {
     top:0;
     left:0;
     height: 120px;
+    text-align: center;
+}
+
+#main-menu-table tr td p {
+    text-align: center;
+
 }
