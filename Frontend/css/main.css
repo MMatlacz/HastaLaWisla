@@ -16,3 +16,10 @@ html, body {
     margin: 0;
 }
 
+#header {
+    position: absolute;
+}
+
+#footer {
+
+}

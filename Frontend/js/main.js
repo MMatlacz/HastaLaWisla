@@ -15,7 +15,7 @@ function initMap() {
         scaleControl: false,
         streetViewControl: false,
         rotateControl: false,
-        fullscreenControl: false
+        fullscreenControl: false,
     });
     getPlaces('pt');
 }
