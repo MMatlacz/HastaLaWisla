@@ -8,20 +8,21 @@
     <title>HastaLaWisla</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/semantic.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/swipebox.css">
     <meta charset="utf-8">
 </head>
 <body>
-<script src="js/shared/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/jquery.min.js"></script>
 <script src="js/shared/jquery.swipebox.min.js"></script>
+<script src="js/shared/semantic.min.js"></script>
 <script src="js/shared/ui-bootstrap-tpls-0.14.3.js"></script>
-<script src="js/shared/jquery.loadTemplate-1.4.4.min.js"></script>
 <script src="js/app.js"></script>
 <script src="js/main.js"></script>
 
 <script type="text/html" id="main-screen-template">
     <div id="header">
-        <a class="icon left-icon">
+        <a class="icon left-icon" href="#">
             <img src="./img/icons/settings.svg" alt="..." />
         </a>
     </div>
@@ -49,20 +50,20 @@
     </div>
 </script>
 
-<!--<script type="text/html" id="detail-screen-template">-->
+<script type="text/html" id="detail-screen-template">
     <div id="container">
-        <a class="icon left-icon back-icon">
+        <a class="icon left-icon back-icon special">
             <img src="./img/icons/arrow_white.svg" alt="..." />
         </a>
 
         <div class="header">
-            <a href="${website}"><h1>${name}</h1></a>
+            <a href="#"><h1></h1></a>
         </div>
 
         <div class="info">
-            <h3>${description}</h3>
+            <h3"></h3>
 
-            <p class="link-to-website"><a href="${website}">${website}</a></p>
+            <p class="link-to-website"><a href=""></a></p>
 
             <hr>
 
@@ -96,7 +97,7 @@
             </div>
         </div>
     </div>
-<!--</script>-->
+</script>
 
 <script type="text/html" id="menu-screen-template">
     <div id="kontener">

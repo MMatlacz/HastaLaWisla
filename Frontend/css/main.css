@@ -88,15 +88,10 @@ hr {
 }
 
 .info h3 {
-    margin: 10px auto;
-}
-
-.info h3 {
+    margin: 10px auto !important;
     font-size: 12pt;
     text-align: center;
 }
-
-
 
 #container {
     background-color: ;
