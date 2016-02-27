@@ -8,10 +8,12 @@
     <title>HastaLaWisla</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/swipebox.css">
     <meta charset="utf-8">
 </head>
 <body>
 <script src="js/shared/jquery-1.11.3.min.js"></script>
+<script src="js/shared/jquery.swipebox.min.js"></script>
 <script src="js/shared/ui-bootstrap-tpls-0.14.3.js"></script>
 <script src="js/shared/jquery.loadTemplate-1.4.4.min.js"></script>
 <script src="js/app.js"></script>
@@ -65,9 +67,9 @@
             <hr>
 
             <div class="gallery">
-                <div class="gallery-image"><img src="img/photos/default.jpg" alt=""></div>
-                <div class="gallery-image"><img src="img/photos/default.jpg" alt=""></div>
-                <div class="gallery-image"><img src="img/photos/default.jpg" alt=""></div>
+                <div class="gallery-image"><a href="img/photos/default.jpg" class="swipebox"><img src="img/photos/default.jpg" alt=""></a></div>
+                <div class="gallery-image"><a href="img/photos/default.jpg" class="swipebox"><img src="img/photos/default.jpg" alt=""></a></div>
+                <div class="gallery-image"><a href="img/photos/default.jpg" class="swipebox"><img src="img/photos/default.jpg" alt=""></a></div>
             </div>
 
             <div id="bottom-menu">
@@ -83,7 +85,7 @@
 
                 <div class="jakdojade">
                     <a href="http://www.jakdojade.pl/">
-                        <img src="img/icons/jakdojade.png" /><br />
+                        <img src="img/icons/transport.svg" /><br />
                         Dojazd
                     </a>
                 </div>
@@ -119,5 +121,12 @@
 
 <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC0fyRGllwPtxZdknHd_nPYAuloCYIiF_0'></script>
 <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobubble/src/infobubble.js"></script>
+<script type="text/javascript">
+    ;( function( $ ) {
+
+        $( '.swipebox' ).swipebox();
+
+    } )( jQuery );
+</script>
 </body>
 </html>

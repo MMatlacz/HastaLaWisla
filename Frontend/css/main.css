@@ -153,6 +153,8 @@ td {
     display: inline-block;
     width: 32%;
     text-align: center;
+    border: 1px solid black;
+    padding: 5px;
 }
 
 .gallery .gallery-image {
@@ -172,4 +174,8 @@ td {
 .info .link-to-website {
     text-align: center;
     margin-top: 10px;
+}
+
+.jakdojade a {
+    color: black;
 }
