@@ -8,6 +8,10 @@ html, body {
     padding: 0;
 }
 
+hr {
+    margin: 10px auto;
+}
+
 #map {
     height: 100%;
     width: 100%;
@@ -62,9 +66,29 @@ html, body {
 
 }
 
+.back-icon {
+    position: absolute;
+    top:0;
+    left: 0;
+}
+
+.header {
+    height: 200px;
+    background-image: url('../img/photos/default.jpg');
+    background-position: bottom center;
+    background-size: 100%;
+    padding-top: 164px;
+}
+
 .header h1 {
     font-size: 18pt;
     text-align: center;
+    margin-top: 0;
+    color: white;
+}
+
+.info h3 {
+    margin: 10px auto;
 }
 
 .info h3 {
@@ -145,6 +169,7 @@ td {
 
 }
 
-.link-to-website {
+.info .link-to-website {
     text-align: center;
+    margin-top: 10px;
 }
