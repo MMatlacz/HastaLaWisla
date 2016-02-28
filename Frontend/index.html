@@ -91,9 +91,17 @@
 
         } else if (from == 'menu' && to == 'quick-guide') {
             $("#menu-screen").remove();
-            $("#info-screen #back-link").bind('click', function () {
+            $("#quick-guide-screen #back-link").bind('click', function () {
                 switchView('quick-guide', 'menu');
             });
+        } else if (from == 'quick-guide' && to == 'menu') {
+            $("#quick-guide-screen").remove();
+            $("#menu-screen #back-link").bind('click', function () {
+                switchView('menu', 'main');
+            });
+            $("#practical-info-link").bind('click',function() {
+                switchView('menu','quick-guide');
+            })
         }
     };
 
