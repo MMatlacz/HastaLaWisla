@@ -14,10 +14,10 @@ app.debug = True
 photos_path = './photos/'
 
 class Miejsce:
-	def __init__(self, identyfikator, nazwa,long, lat,kategoria, opis,zdjecie_main,zdj1,zdj2,zdj3,cena, otwarcie, zamkniecie):
+	def __init__(self, identyfikator, nazwa, longit, lat, kategoria, opis, zdjecie_main, zdj1, zdj2, zdj3, cena, otwarcie, zamkniecie):
 		self.identyfikator = identyfikator
 		self.nazwa = nazwa					 #bez enterow!!!
-		self.longitude = long
+		self.longitude = longit
 		self.latitude = lat
 		self.kategoria = kategoria		 	#string {natura, ruch, gastronomia, muzyka}
 		self.opis = opis
@@ -27,6 +27,7 @@ class Miejsce:
 		self.zdj1 = zdj1
 		self.zdj2 = zdj2
 		self.zdj3 = zdj3
+		self.cena = cena
 
 	def get_places(self):
 		obj = {}
@@ -46,16 +47,19 @@ class Miejsce:
 
 		return json.dumps(obj)
 
-Warszawa = Miejsce('0', 'Warszawa', '52:21', 'zdjecie.jpg', 'Miasto', 'NaszeMiasto', '')
-Cypel = Miejsce('sdu73f', 'Cypel', '52:21', 'zdjecie.jpg', 'picie', 'Troche nieleglane miejsce...', '')
+PomostOpis = 'Miejsce kreatywnego relaksu na Powiślu dla mieszkańców Warszawy i jej gości, strefa w której spotykają się różne środowiska, by wspólnie poimprezować i wypocząć. Atmosferę miejsca podgrzewa przyjemna muzyka nie zagłuszająca rozmów odpoczywających gości, a w weekendy mega imprezy dla wymagających klubowiczów. Pomost 511 to połączenie kulturalnej klubokawiarni i wodniackiego miejsca z przystanią na rzece i kameralną piaszczystą plażą.'
+Pomost511 = Miejsce('sdlfkj', 'Pomost 511', '52.229086', '21.0435052', 'Muzyka', PomostOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 1, '13:00', '4:00')
 
-@app.route(app_url + '/places/warszawa')
-def wawa():
-	return Warszawa.get_places()
+PlazowaOpis = 'Plażowa / Pantai Warsaw / Miejskie Granie'
+Plazowa = Miejsce('Plz', 'Plazowa',  '52.2378957', '21.0427988', 'Gastronomia', PlazowaOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 2, '11:00', '1:00')
 
-@app.route(app_url + '/places/cypel')
-def cypel():
-	return Cypel.get_places()
+@app.route(app_url + '/places/pomost511')
+def pmst():
+	return Pomost511.get_places()
+
+@app.route(app_url + '/places/plazowa')
+def plzw():
+	return Plazowa.get_places()
 
 
 
