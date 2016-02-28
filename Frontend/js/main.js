@@ -1,6 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
-    initMap();
-});
+
 
 var places = {};
 
@@ -267,6 +265,7 @@ Handlebars.getTemplate = function (name) {
     }
     return Handlebars.templates[name];
 };
+
 
 
 
