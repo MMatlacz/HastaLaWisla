@@ -53,6 +53,13 @@ Pomost511 = Miejsce('sdlfkj', 'Pomost 511', '52.229086', '21.0435052', 'Muzyka',
 PlazowaOpis = 'Plażowa / Pantai Warsaw / Miejskie Granie'
 Plazowa = Miejsce('Plz', 'Plazowa',  '52.2378957', '21.0427988', 'Gastronomia', PlazowaOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 2, '11:00', '1:00')
 
+Park_linowyOpis = 'Parki Linowy Warszawa to specjalnie przygotowany teren dla zabaw z użyciem lin. U nas bawić się mogą ludzie bez żadnego doświadczenia w tym kierunku, zarówno dzieci, młodzież jak i dorośli. Zapewniamy niezapomniane wrażenia, adrenalinę i zabawę na świeżym powietrzu. Proponujemy organizację urodzin dla dzieci, wieczorów panieńskich i kawalerskich. Imprezy integracyjne dla firm.'
+Park_linowy = Miejsce('Prklnw', 'Park linowy', '52.2546913', '21.0209791', 'Ruch', Park_linowyOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 2, '9:00', '23:00')
+
+Wyspy_zawadowskieOpis = 'Na południu Warszawy znajduje się rezerwat Wyspy Zawadowskie. Zlokalizowany jest on na Wiśle w obrębie dwóch dzielnic: Wawra oraz Wilanowa. Obszar rezerwatu wykracza również poza granice Warszawy i zajmuje część gminy Konstancin - Jeziorna oraz miasta Józefów. Rezerwat został utworzony 23.12.1998 roku. Obszar chroniony ma powierzchnię 530,28 ha. Głównym celem powołania do życia rezerwatów była ochrona ekosystemów wodnych w obrębie koryta Wisły. Chroniony obszar jest miejscem gniazdowania wielu rzadkich i cennych gatunków ptaków, jak również stanowi ostoję zwierząt związanych ze środowiskiem wodnym.'
+Wyspy_zawadowskie = Miejsce('WspZdwk', 'Wyspy Zawadowskie', '52.135795', '21.1838098', 'Natura', Wyspy_zawadowskieOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 0, '6:00', '23:00'
+
+
 @app.route(app_url + '/places/pomost511')
 def pmst():
 	return Pomost511.get_places()
@@ -60,6 +67,14 @@ def pmst():
 @app.route(app_url + '/places/plazowa')
 def plzw():
 	return Plazowa.get_places()
+
+@app.route(app_url + '/places/park_linowy')
+def prkln():
+	return Park_linowy.get_places()
+
+@app.route(app_url + '/places/wyspy_zawadowskie')
+def wspzwdsk():
+	return Wyspy_zawadowskie.get_places()
 
 
 
