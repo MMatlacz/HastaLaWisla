@@ -54,9 +54,16 @@ var switchView = function(from, to) {
         });
         initMap();
     } else if (from == 'main' && to == 'details') {
-
+        $("#main-screen").remove();
+        $("#details-screen #back-icon").bind('click', function () {
+            switchView('details', 'main');
+        });
     } else if (from == 'details' && to == 'main') {
-
+        $("#details-screen").remove();
+        $("#main-screen #header a").bind('click', function () {
+            switchView('main', 'menu');
+        });
+        initMap();
     } else if (from == 'menu' && to == 'quick-guide') {
         $("#menu-screen").remove();
         $("#quick-guide-screen #back-link").bind('click', function () {
