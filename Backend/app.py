@@ -59,7 +59,13 @@ Park_linowy = Miejsce('Prklnw', 'Park linowy', '52.2546913', '21.0209791', 'Ruch
 Wyspy_zawadowskieOpis = 'Na południu Warszawy znajduje się rezerwat Wyspy Zawadowskie. Zlokalizowany jest on na Wiśle w obrębie dwóch dzielnic: Wawra oraz Wilanowa. Obszar rezerwatu wykracza również poza granice Warszawy i zajmuje część gminy Konstancin - Jeziorna oraz miasta Józefów. Rezerwat został utworzony 23.12.1998 roku. Obszar chroniony ma powierzchnię 530,28 ha. Głównym celem powołania do życia rezerwatów była ochrona ekosystemów wodnych w obrębie koryta Wisły. Chroniony obszar jest miejscem gniazdowania wielu rzadkich i cennych gatunków ptaków, jak również stanowi ostoję zwierząt związanych ze środowiskiem wodnym.'
 Wyspy_zawadowskie = Miejsce('WspZdwk', 'Wyspy Zawadowskie', '52.135795', '21.1838098', 'Natura', Wyspy_zawadowskieOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 0, '6:00', '23:00')
 
-lista_miejsc = [Pomost511, Plazowa, Park_linowy, Wyspy_zawadowskie]
+HockiKlockiOpis = "Założeniem klubu jest powrót do krainy dzieciństwa. Hocki Klocki znajdują się przy Bulwarze Flotylli Wiślanej, w niedalekim sąsiedztwie ulicy Ludnej.W otoczeniu drzew i z kawałkiem plaży- idealna przestrzeń do wakacyjnego relaksu."
+HockiKlocki = Miejsce("HckKlck","Hocki Klocki","52.232311" ,"21.041103","muzyka",HockiKlockiOpis,"0.jpg","1.jpg","2.jpg","3.jpg","1","11:00","2:00")
+
+CudNadWislaOpis = "Bez wahania można powiedzieć, że to Cud nad Wisłą zapoczątkował tradycję spędzania długich wieczorów przy zacnej muzyce nad samą rzeką. Cud jest z nami już od pięciu lat i ani myśli, mimo pojawiających się co roku mocnych konkurentów, wynosić znad Wisły."
+CudNadWisla = Miejsce("CdNdWsl","Cud Nad Wisłą","52.228424", "21.044472","muzyka",CudNadWislaOpis,"0.jpg","1.jpg","2.jpg","3.jpg","1","15:00","2:00")
+
+lista_miejsc = [Pomost511, Plazowa, Park_linowy, Wyspy_zawadowskie, HockiKlocki, CudNadWisla]
 
 java_table = []
 
