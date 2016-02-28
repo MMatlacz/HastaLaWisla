@@ -63,8 +63,7 @@ hr {
 }
 
 .info {
-    padding: 0 20px;
-
+    padding: 10px 20px;
 }
 
 .back-icon {
@@ -137,6 +136,10 @@ td {
     text-align: center;
 }
 
+#main-menu-table {
+    background-color: #f3faff;
+}
+
 #bottom-menu {
     width: 100%;
     margin-top: 20px;
@@ -170,6 +173,14 @@ td {
     margin-top: 10px;
 }
 
+.info p img {
+    margin-bottom: 8px;
+}
+
+.info p {
+    font-size: 13pt;
+}
+
 .jakdojade a {
     color: black;
 }
@@ -196,8 +207,10 @@ td {
 }
 
 #logo {
-    width: auto;
-    height: 200px;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    max-width: 400px;
 }
 
 #back-arrow {
@@ -227,6 +240,10 @@ a#back-link {
     margin-top: 200px;
     padding: 10px;
     font-size: 14pt;
+}
+
+#quick-guide-screen {
+    background-color: #f3faff;
 }
 
 #quick-guide-container img {
