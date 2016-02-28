@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     initMap();
 });
 
+var places = {};
+
 var markerTemp;
 var type;
 var map;
@@ -41,7 +43,6 @@ function initMap() {
 
     map.addListener('idle', performSearch);
 
-    // Bounds for North America
     var strictBounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(52.288099, 21.000600),
         new google.maps.LatLng(52.203213, 21.064822)
@@ -179,43 +180,71 @@ function addMarker(place) {
 }
 
 readURL = function () {
+
     input = $('[name=obraz]')[0];
     tekst = $('[name=text]')[0];
+    console.log(markerTemp.position.toString());
+    console.log(places[markerTemp.position.toString()]);
+    places[markerTemp.position.toString()] = {'input': input, 'tekst': tekst};
+
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
             $('#blah')
                 .attr('src', e.target.result)
-                .css('width','100px', 'height', 'auto')
-
+                .css('width', '100px', 'height', 'auto')
+                .removeClass('invisible')
         };
         reader.readAsDataURL(input.files[0]);
         $('#descr')
             .text(tekst.value)
+            .removeClass('invisible')
     }
 };
 
 
-accept = function (o) {
-    console.log(o);
-    o.parentElement.children[0].remove();
-    o.parentElement.children[0].remove();
-    $('#temp').removeClass('col-md-6');
-    $('#temp').addClass('col-md-12');
-    /*
-    google.maps.event.addListener(markerTemp, 'click', function () {
-        infoWindow.setContent(o.parentElement.children[0]);
+accept = function (e) {
+    markerTemp.addListener('click', function () {
+        input = places[markerTemp.position.toString()].input;
+        tekst = places[markerTemp.position.toString()].tekst;
+        var divA = document.createElement("div");
+        divA.className = ('container col-md-12');
+        var divI = document.createElement("div");
+        var divT = document.createElement("div");
+
+        divI.className = ('col-md-6');
+        divT.className = ('col-md-6');
+
+        var image = document.createElement("img");
+        var text = document.createElement("p");
+
+        divI.appendChild(image);
+        divT.appendChild(text);
+
+        divA.appendChild(divI);
+        divA.appendChild(divT);
+
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            image.src = (e.target.result);
+            image.className = 'thumb';
+
+        };
+        reader.readAsDataURL(input.files[0]);
+        text.textContent = (tekst.value);
+        text.className = 'txt';
+        infoWindow.setContent(divA);
         infoWindow.open(map, markerTemp);
     });
-    */
-
+    infoWindow.close(map, markerTemp);
+    return false;
 };
 addCustomMarker = function (latLng) {
     var marker = new google.maps.Marker({
         map: map,
         position: latLng
     });
-    //markerTemp = marker;
+    markerTemp = marker;
     google.maps.event.addListener(marker, 'click', function () {
         console.log($('#plate').html());
         infoWindow.setContent($('#plate').html());
@@ -223,17 +252,17 @@ addCustomMarker = function (latLng) {
     });
 };
 
-Handlebars.getTemplate = function(name) {
+Handlebars.getTemplate = function (name) {
     if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
         $.ajax({
-            url : 'templates/' + name + '.handlebars',
-            success : function(data) {
+            url: 'templates/' + name + '.handlebars',
+            success: function (data) {
                 if (Handlebars.templates === undefined) {
                     Handlebars.templates = {};
                 }
                 Handlebars.templates[name] = Handlebars.compile(data);
             },
-            async : false
+            async: false
         });
     }
     return Handlebars.templates[name];

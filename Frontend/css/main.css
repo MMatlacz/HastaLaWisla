@@ -2,6 +2,7 @@
     font-family: NexaLight;
     src: url('fonts/NexaLight.ttf');
 }
+
 html, body {
     height: 100%;
     margin: 0;
@@ -68,7 +69,7 @@ hr {
 
 .back-icon {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
 }
 
@@ -93,21 +94,17 @@ hr {
 }
 
 #details-screen {
-    background-color: ;
-    color: ;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
+}
+#container {
 }
 
-
-hr {
-    border-color: ;
-}
 
 table {
     border: 1px solid green;
-    border-collapse:collapse;
-    width:100%;
+    border-collapse: collapse;
+    width: 100%;
     margin-top: 220px;
 }
 
@@ -118,19 +115,19 @@ td {
 }
 
 .activity {
-    width:49%;
+    width: 49%;
     height: 100px;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     background-color: yellow;
     display: inline-block;
 }
 
 #menu-header {
-    width:100%;
+    width: 100%;
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     height: 120px;
     text-align: center;
     margin-top: 20px;
@@ -213,4 +210,14 @@ a#back-link {
     display: block;
     width: 50px;
     height: 50px;
+}
+
+.thumb {
+    width: 100px;
+    height: auto;
+    float: left;
+}
+
+.txt {
+    float: right;
 }
