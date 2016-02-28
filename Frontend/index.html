@@ -27,10 +27,9 @@
 <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobubble/src/infobubble.js"></script>
 <script type="text/javascript">
     ;( function( $ ) {
-
         $( '.swipebox' ).swipebox();
-
     } )( jQuery );
+
     var data_for_details_view = {
         name: 'Cud nad Wisłą',
         description: 'Piękne miejsce ale niestety mocno niedoceniane przez Japończyków.',
@@ -51,10 +50,10 @@
 
     };
 
-    var template = Handlebars.getTemplate('detail-screen');
+    var template = Handlebars.getTemplate('main-screen');
     var rendered = template(data_for_details_view);
 
-    $('body').html(rendered); 
+    $('body').html(rendered);
 </script>
 </body>
 </html>
