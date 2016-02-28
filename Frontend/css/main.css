@@ -44,6 +44,11 @@ hr {
     float: left;
 }
 
+#details-screen .icon img {
+    height: 27px;
+    margin: 10px;
+}
+
 .icon img {
     height: 40px;
     margin: 10px;
@@ -63,7 +68,7 @@ hr {
 }
 
 .info {
-    padding: 10px 20px;
+    padding: 10px 10px;
 }
 
 .back-icon {
@@ -149,9 +154,9 @@ td {
 
 #bottom-menu div {
     display: inline-block;
-    width: 29%;
+    width: 30%;
     text-align: center;
-    padding: 5px;
+    padding: 5px 3px;
 }
 
 .gallery .gallery-image {
@@ -181,6 +186,10 @@ td {
     font-size: 13pt;
 }
 
+#details-screen .info p a {
+    font-size: 11pt;
+}
+
 .jakdojade a {
     color: black;
 }
@@ -189,6 +198,7 @@ td {
     border-left: 1px solid black;
     width: 5px;
     height: 50px;
+    padding: 0;
 }
 
 #main-screen {
@@ -255,3 +265,6 @@ a#back-link {
     margin-bottom: 10px;
 }
 
+.hours img, .price img, .jakdojade img {
+    margin-bottom: 7px;
+}

@@ -1,5 +1,6 @@
 var places = {};
 var atm = false;
+window.onlyNowOpened = true;
 var markerTemp;
 var type;
 var map;
@@ -90,20 +91,20 @@ function performSearch() {
         atms = {
             bounds: map.getBounds(),
             type: 'atm',
-            openNow: true
+            openNow: onlyNowOpened
         };
         container.push(atms)
     }
     var bar = {
         bounds: map.getBounds(),
         type: 'bar',
-        openNow: true
+        openNow: onlyNowOpened
 
     };
     var restaurant = {
         bounds: map.getBounds(),
         type: 'restaurant',
-        openNow: true
+        openNow: onlyNowOpened
 
     };
     container.push(bar);
@@ -287,11 +288,10 @@ Handlebars.getTemplate = function (name) {
     return Handlebars.templates[name];
 };
 
-
-
-
-
-
-
-
-
+var nowMode = function() {
+    if (window.onlyNowOpened == true) {
+        window.onlyNowOpened = false;
+    } else {
+        window.onlyNowOpened = true;
+    }
+}

@@ -1,7 +1,7 @@
 var data_for_details_view = {
     name: 'Hocki Klocki Bar',
     description: 'Przyjazna klubokawiarnia, w której można usiąść, odprężyć się i delektować chwilą.',
-    website: 'http://www.facebook.com/HockiKlockinadWisla',
+    website: 'http://www.hockiklocki.pl',
     hours: '11:00-02:00',
     price: 'Przystępna',
     photos: ["img/photos/HckKlck/0.jpg","img/photos/HckKlck/1.jpg","img/photos/HckKlck/2.jpg"],
