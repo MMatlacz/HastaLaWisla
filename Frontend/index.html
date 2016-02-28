@@ -13,117 +13,15 @@
     <meta charset="utf-8">
 </head>
 <body>
+
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script src="js/shared/jquery.swipebox.min.js"></script>
-<script src="js/shared/jquery.loadTemplate-1.5.0.js"></script>
+<script src="js/shared/handlebars-v4.0.5.js"></script>
 <script src="js/shared/semantic.min.js"></script>
-<script src="js/shared/ui-bootstrap-tpls-0.14.3.js"></script>
+
 <script src="js/app.js"></script>
 <script src="js/main.js"></script>
 
-<script type="text/html" id="main-screen-template">
-    <div id="header">
-        <a class="icon left-icon" href="#">
-            <img src="./img/icons/settings.svg" alt="..." />
-        </a>
-    </div>
-
-    <div class='container col-md-12 mapContainer'>
-        <div id="map"></div>
-    </div>
-
-    <div id="footer">
-        <a class="icon left-icon">
-            <img src="./img/icons/calendar.svg" alt=NOW" />
-        </a>
-        <a class="icon right-icon">
-            <img src="./img/icons/transport.svg" alt="BUS">
-        </a>
-        <a class="icon right-icon">
-            <img src="./img/icons/wifi.svg" alt="Wi-Fi">
-        </a>
-        <a class="icon right-icon">
-            <img src="./img/icons/wc.svg" alt="WC">
-        </a>
-        <a class="icon right-icon">
-            <img src="./img/icons/atm.svg" alt="ATM">
-        </a>
-    </div>
-</script>
-
-<script type="text/html" id="detail-screen-template">
-    <div id="container">
-        <a class="icon left-icon back-icon special">
-            <img src="./img/icons/arrow_white.svg" alt="..." />
-        </a>
-
-        <div class="header">
-            <a href="#"><h1 data-content="name"></h1></a>
-        </div>
-
-        <div class="info">
-            <h3 data-content="description"></h3>
-
-            <p class="link-to-website"><a href=""></a></p>
-
-            <hr>
-
-            <div class="gallery">
-                <div class="gallery-image"><a href="img/photos/default.jpg" class="swipebox"><img src="img/photos/default.jpg" alt=""></a></div>
-                <div class="gallery-image"><a href="img/photos/default.jpg" class="swipebox"><img src="img/photos/default.jpg" alt=""></a></div>
-                <div class="gallery-image"><a href="img/photos/default.jpg" class="swipebox"><img src="img/photos/default.jpg" alt=""></a></div>
-            </div>
-
-            <div id="bottom-menu">
-                <div class="hours">
-                    <img src="img/icons/clock2.svg" /><br />
-                    <!--${opening-hours}-->9 - 17
-                </div>
-
-                <div class="vertical-line"></div>
-
-                <div class="price">
-                    <img src="img/icons/coins.svg" /><br />
-                    <!--${price}-->Przystępna
-                </div>
-
-                <div class="vertical-line"></div>
-
-                <div class="jakdojade">
-                    <a href="http://www.jakdojade.pl/">
-                        <img src="img/icons/transport.svg" /><br />
-                        Dojazd
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</script>
-
-<script type="text/html" id="menu-screen-template">
-    <div id="kontener">
-        <div id="menu-header">
-            <h1>Hasta la Wisła</h1>
-        </div>
-
-        <p><a href="#"><</a></p>
-
-        <table id="main-menu-table">
-            <tr>
-                <td><p id="gastronomy-link">Gastronomia</p></td>
-                <td><p id="music-link">Muzyka & Taniec</p></td>
-            </tr>
-            <tr>
-                <td><p id="sport-link">Ruch</p></td>
-                <td><p id="nature-link">Natura</p></td>
-            </tr>
-            <tr>
-                <td><p></p></td>
-                <td><p id="practical-info-link">Informacje praktyczne</p></td>
-            </tr>
-        </table>
-    </div>
-</script>
 
 <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC0fyRGllwPtxZdknHd_nPYAuloCYIiF_0'></script>
 <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobubble/src/infobubble.js"></script>
@@ -133,8 +31,30 @@
         $( '.swipebox' ).swipebox();
 
     } )( jQuery );
-    $("body").loadTemplate($("#detail-screen-template"),
-            {name: 'Cud na Wisłą', description: 'Piękne, malownicze miejsce z napojami o przystępnych cenach.'});
+    var data_for_details_view = {
+        name: 'Cud nad Wisłą',
+        description: 'Piękne miejsce ale niestety mocno niedoceniane przez Japończyków.',
+        website: 'http://www.cudnadwisla.pl',
+        hours: '9-17',
+        photos: ["img/photos/default.jpg","img/photos/default.jpg","img/photos/default.jpg"],
+        background: "img/photos/default.jpg"
+    };
+
+    var data_for_menu_view = {
+        title: 'Hasta la Wisła, bejbe',
+        gastronomy_label: 'Gastronomia',
+        sport_label: 'Ruch',
+        music_and_dance_label: 'Muzyka & Taniec',
+        info_label: 'Informacje praktyczne',
+        nature_label: 'Natura',
+        costam_label: 'Cośtam'
+
+    };
+
+    var template = Handlebars.getTemplate('detail-screen');
+    var rendered = template(data_for_details_view);
+
+    $('body').html(rendered);
 </script>
 </body>
 </html>

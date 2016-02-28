@@ -1,0 +1,46 @@
+<div id="container">
+    <a class="icon left-icon back-icon special">
+        <img src="./img/icons/arrow_white.svg" alt="..." />
+    </a>
+
+    <div class="header" style="background-image: url('{{background}}');">
+        <a href="#"><h1>{{name}}</h1></a>
+    </div>
+
+    <div class="info">
+        <h3>{{description}}</h3>
+
+        <p class="link-to-website"><a href="{{website}}">{{website}}</a></p>
+
+        <hr>
+
+        <div class="gallery">
+            {{#each photos}}
+                <div class="gallery-image"><a href="{{this}}" class="swipebox"><img src="{{this}}" alt=""></a></div>
+            {{/each}}
+        </div>
+
+        <div id="bottom-menu">
+            <div class="hours">
+                <img src="img/icons/clock2.svg" /><br />
+                {{hours}}
+            </div>
+
+            <div class="vertical-line"></div>
+
+            <div class="price">
+                <img src="img/icons/coins.svg" /><br />
+                <!--${price}-->Przystępn+a
+            </div>
+
+            <div class="vertical-line"></div>
+
+            <div class="jakdojade">
+                <a href="http://www.jakdojade.pl/">
+                    <img src="img/icons/transport.svg" /><br />
+                    Dojazd
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
