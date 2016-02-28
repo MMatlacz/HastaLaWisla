@@ -37,10 +37,10 @@ class Miejsce:
 		obj['opis'] = self.opis
 		obj['latitude'] = self.latitude
 		obj['longitue'] = self.longitue
-		obj['zdjecie_main'] = photos_path + self.nazwa + '/' + self.zdjecie_main
-		obj['zdj1'] = photos_path + self.nazwa + '/' + self.zdj1
-		obj['zdj2'] = photos_path + self.nazwa + '/' + self.zdj2
-		obj['zdj3'] = photos_path + self.nazwa + '/' + self.zdj3
+		obj['zdjecie_main'] = photos_path + self.identyfikator + '/' + self.zdjecie_main
+		obj['zdj1'] = photos_path + self.identyfikator + '/' + self.zdj1
+		obj['zdj2'] = photos_path + self.identyfikator + '/' + self.zdj2
+		obj['zdj3'] = photos_path + self.identyfikator + '/' + self.zdj3
 		obj['cena'] = self.cena
 		obj['otwarcie'] = self.otwarcie
 		obj['zamkniecie'] = self.zamkniecie
