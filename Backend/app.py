@@ -14,32 +14,39 @@ app.debug = True
 photos_path = './photos/'
 
 class Miejsce:
-	def __init__(self, identyfikator, nazwa,lokalizacja, zdjecie_main, kategoria, opis, dodatkowe_parametry):
+	def __init__(self, identyfikator, nazwa,long, lat,kategoria, opis,zdjecie_main,zdj1,zdj2,zdj3,cena, otwarcie, zamkniecie):
 		self.identyfikator = identyfikator
-		self.nazwa = nazwa
-		self.lokalizacja = lokalizacja
-		self.zdjecie_main = zdjecie_main
-		self.kategoria = kategoria
+		self.nazwa = nazwa					 #bez enterow!!!
+		self.longitude = long
+		self.latitude = lat
+		self.kategoria = kategoria		 	#string {natura, ruch, gastronomia, muzyka}
 		self.opis = opis
-		self.dodatkowe_parametry = dodatkowe_parametry
-
+		self.otwarcie = otwarcie
+		self.zamkniecie = zamkniecie
+		self.zdjecie_main = zdjecie_main	#wszystkie zdjecia to tak naprawde sciezki z /img/
+		self.zdj1 = zdj1
+		self.zdj2 = zdj2
+		self.zdj3 = zdj3
 
 	def get_places(self):
 		obj = {}
 		obj['identyfikator'] = self.identyfikator
 		obj['nazwa'] = self.nazwa
-		obj['lokalizacja'] = self.lokalizacja
-		obj['zdjecie_main'] = photos_path + self.nazwa + '/' + self.zdjecie_main
 		obj['kategoria'] = self.kategoria
 		obj['opis'] = self.opis
-		if 	self.dodatkowe_parametry != '':
-			obj['dodatkowe_parametry'] = self.dodatkowe_parametry
-		else:
-			pass
+		obj['longitue'] = self.longitude
+		obj['latitude'] = self.latitude
+		obj['zdjecie_main'] = photos_path + self.nazwa + '/' + self.zdjecie_main
+		obj['zdj1'] = photos_path + self.nazwa + '/' + self.zdj1
+		obj['zdj2'] = photos_path + self.nazwa + '/' + self.zdj2
+		obj['zdj3'] = photos_path + self.nazwa + '/' + self.zdj3
+		obj['cena'] = self.cena
+		obj['otwarcie'] = self.otwarcie
+		obj['zamkniecie'] = self.zamkniecie
 
 		return json.dumps(obj)
 
-Warszawa = Miejsce('XYZ', 'Warszawa', '52:21', 'zdjecie.jpg', 'Miasto', 'NaszeMiasto', '')
+Warszawa = Miejsce('0', 'Warszawa', '52:21', 'zdjecie.jpg', 'Miasto', 'NaszeMiasto', '')
 Cypel = Miejsce('sdu73f', 'Cypel', '52:21', 'zdjecie.jpg', 'picie', 'Troche nieleglane miejsce...', '')
 
 @app.route(app_url + '/places/warszawa')
