@@ -7,14 +7,14 @@ from wsgiref import simple_server
 
 from flask import Flask
 
-app_url = 'matlaczm/appka'
+app_url = ''
 app = Flask(__name__)
 app.debug = True
 
 photos_path = './photos/'
 
 class Miejsce:
-	def __init__(self, identyfikator, nazwa, longit, lat, kategoria, opis, zdjecie_main, zdj1, zdj2, zdj3, cena, otwarcie, zamkniecie):
+	def __init__(self, identyfikator, nazwa, lat, longit, kategoria, opis, zdjecie_main, zdj1, zdj2, zdj3, cena, otwarcie, zamkniecie):
 		self.identyfikator = identyfikator
 		self.nazwa = nazwa					 #bez enterow!!!
 		self.longitue = longit
@@ -35,8 +35,8 @@ class Miejsce:
 		obj['nazwa'] = self.nazwa
 		obj['kategoria'] = self.kategoria
 		obj['opis'] = self.opis
-		obj['longitue'] = self.longitue
 		obj['latitude'] = self.latitude
+		obj['longitue'] = self.longitue
 		obj['zdjecie_main'] = photos_path + self.nazwa + '/' + self.zdjecie_main
 		obj['zdj1'] = photos_path + self.nazwa + '/' + self.zdj1
 		obj['zdj2'] = photos_path + self.nazwa + '/' + self.zdj2
@@ -60,10 +60,12 @@ Wyspy_zawadowskieOpis = 'Na południu Warszawy znajduje się rezerwat Wyspy Zawa
 Wyspy_zawadowskie = Miejsce('WspZdwk', 'Wyspy Zawadowskie', '52.135795', '21.1838098', 'Natura', Wyspy_zawadowskieOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 0, '6:00', '23:00')
 
 HockiKlockiOpis = "Założeniem klubu jest powrót do krainy dzieciństwa. Hocki Klocki znajdują się przy Bulwarze Flotylli Wiślanej, w niedalekim sąsiedztwie ulicy Ludnej.W otoczeniu drzew i z kawałkiem plaży- idealna przestrzeń do wakacyjnego relaksu."
-HockiKlocki = Miejsce("HckKlck","Hocki Klocki","52.232311" ,"21.041103","muzyka",HockiKlockiOpis,"0.jpg","1.jpg","2.jpg","3.jpg","1","11:00","2:00")
+HockiKlocki = Miejsce("HckKlck","Hocki Klocki","52.232311" ,"21.041103","Muzyka", HockiKlockiOpis,"0.jpg","1.jpg","2.jpg","3.jpg","1","11:00","2:00")
 
 CudNadWislaOpis = "Bez wahania można powiedzieć, że to Cud nad Wisłą zapoczątkował tradycję spędzania długich wieczorów przy zacnej muzyce nad samą rzeką. Cud jest z nami już od pięciu lat i ani myśli, mimo pojawiających się co roku mocnych konkurentów, wynosić znad Wisły."
-CudNadWisla = Miejsce("CdNdWsl","Cud Nad Wisłą","52.228424", "21.044472","muzyka",CudNadWislaOpis,"0.jpg","1.jpg","2.jpg","3.jpg","1","15:00","2:00")
+CudNadWisla = Miejsce("CdNdWsl","Cud Nad Wisłą","52.228424", "21.044472","Muzyka", CudNadWislaOpis,"0.jpg","1.jpg","2.jpg","3.jpg","1","15:00","2:00")
+
+
 
 lista_miejsc = [Pomost511, Plazowa, Park_linowy, Wyspy_zawadowskie, HockiKlocki, CudNadWisla]
 
@@ -85,4 +87,3 @@ def pmst():
 if __name__ == '__main__':
     httpd = simple_server.make_server('127.0.0.1', 5000, app)
     httpd.serve_forever()
-
