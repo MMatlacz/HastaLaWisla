@@ -130,6 +130,7 @@ td {
     height: 120px;
     text-align: center;
     margin-top: 20px;
+    z-index: 1;
 }
 
 #main-menu-table tr td p {
