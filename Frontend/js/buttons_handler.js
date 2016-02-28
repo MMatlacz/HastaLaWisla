@@ -1,10 +1,11 @@
 var data_for_details_view = {
-    name: 'Cud nad Wisłą',
-    description: 'Piękne miejsce ale niestety mocno niedoceniane przez Japończyków.',
-    website: 'http://www.cudnadwisla.pl',
-    hours: '9-17',
-    photos: ["img/photos/default.jpg","img/photos/default.jpg","img/photos/default.jpg"],
-    background: "img/photos/default.jpg"
+    name: 'Hocki Klocki Bar',
+    description: 'Przyjazna klubokawiarnia, w której można usiąść, odprężyć się i delektować chwilą.',
+    website: 'http://www.facebook.com/HockiKlockinadWisla',
+    hours: '11:00-02:00',
+    price: 'Przystępna',
+    photos: ["img/photos/HckKlck/0.jpg","img/photos/HckKlck/1.jpg","img/photos/HckKlck/2.jpg"],
+    background: "img/photos/HckKlck/0.jpg"
 };
 
 var data_for_menu_view = {
