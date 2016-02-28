@@ -17,7 +17,7 @@ class Miejsce:
 	def __init__(self, identyfikator, nazwa, longit, lat, kategoria, opis, zdjecie_main, zdj1, zdj2, zdj3, cena, otwarcie, zamkniecie):
 		self.identyfikator = identyfikator
 		self.nazwa = nazwa					 #bez enterow!!!
-		self.longitude = longit
+		self.longitue = longit
 		self.latitude = lat
 		self.kategoria = kategoria		 	#string {natura, ruch, gastronomia, muzyka}
 		self.opis = opis
@@ -35,7 +35,7 @@ class Miejsce:
 		obj['nazwa'] = self.nazwa
 		obj['kategoria'] = self.kategoria
 		obj['opis'] = self.opis
-		obj['longitue'] = self.longitude
+		obj['longitue'] = self.longitue
 		obj['latitude'] = self.latitude
 		obj['zdjecie_main'] = photos_path + self.nazwa + '/' + self.zdjecie_main
 		obj['zdj1'] = photos_path + self.nazwa + '/' + self.zdj1
@@ -71,6 +71,8 @@ java_table = []
 
 for miejsce in lista_miejsc:
 	java_table.append(miejsce.get_places())
+
+#print json.dumps(java_table)
 
 
 @app.route(app_url + '/places/')
