@@ -76,6 +76,9 @@
             $("#menu-screen #back-link").bind('click', function () {
                 switchView('menu', 'main');
             });
+            $("#practical-info-link").bind('click',function() {
+                switchView('menu','quick-guide');
+            })
         } else if (from == 'menu' && to == 'main') {
             $("#menu-screen").remove();
             $("#main-screen #header a").bind('click', function () {
@@ -86,6 +89,11 @@
 
         } else if (from == 'details' && to == 'main') {
 
+        } else if (from == 'menu' && to == 'quick-guide') {
+            $("#menu-screen").remove();
+            $("#info-screen #back-link").bind('click', function () {
+                switchView('quick-guide', 'menu');
+            });
         }
     };
 
