@@ -37,10 +37,10 @@ class Miejsce:
 		obj['opis'] = self.opis
 		obj['latitude'] = self.latitude
 		obj['longitue'] = self.longitue
-		obj['zdjecie_main'] = photos_path + self.nazwa + '/' + self.zdjecie_main
-		obj['zdj1'] = photos_path + self.nazwa + '/' + self.zdj1
-		obj['zdj2'] = photos_path + self.nazwa + '/' + self.zdj2
-		obj['zdj3'] = photos_path + self.nazwa + '/' + self.zdj3
+		obj['zdjecie_main'] = photos_path + self.identyfikator + '/' + self.zdjecie_main
+		obj['zdj1'] = photos_path + self.identyfikator + '/' + self.zdj1
+		obj['zdj2'] = photos_path + self.identyfikator + '/' + self.zdj2
+		obj['zdj3'] = photos_path + self.identyfikator + '/' + self.zdj3
 		obj['cena'] = self.cena
 		obj['otwarcie'] = self.otwarcie
 		obj['zamkniecie'] = self.zamkniecie
@@ -66,7 +66,7 @@ CudNadWislaOpis = "Bez wahania można powiedzieć, że to Cud nad Wisłą zapocz
 CudNadWisla = Miejsce("CudNadWisla","Cud Nad Wisłą","52.228424", "21.044472","Muzyka", CudNadWislaOpis,"0.jpg","1.jpg","2.jpg","3.jpg","Tanio","15:00","2:00")
 
 Plaza_z_ogniskamiOpis = 'Plaża miejska z kilkoma miejscami pod ogniska. Wspaniałe miejsce na wieczorne ognisko przy zachodzie słońca z widokiem na Stare Miasto.'
-Plaza_z_ogniskami = Miejsce('Plaza_z_ogniskami', 'Plaża z Ogniskami', '52.2349795' , '21.0437078,19', "0.jpg","1.jpg","2.jpg","3.jpg","Za darmo","0:01","23:59")
+Plaza_z_ogniskami = Miejsce('Plaza_z_ogniskami', 'Plaża z Ogniskami', '52.2349795' , '21.0437078,19', 'Ogniska', Plaza_z_ogniskamiOpis, "0.jpg","1.jpg","2.jpg","3.jpg","Za darmo","0:01","23:59")
 
 lista_miejsc = [Pomost511, Plazowa, Park_linowy, Wyspy_zawadowskie, HockiKlocki, CudNadWisla, Plaza_z_ogniskami]
 
