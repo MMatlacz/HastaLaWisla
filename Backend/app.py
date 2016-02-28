@@ -49,6 +49,12 @@ class Miejsce:
 Warszawa = Miejsce('0', 'Warszawa', '52:21', 'zdjecie.jpg', 'Miasto', 'NaszeMiasto', '')
 Cypel = Miejsce('sdu73f', 'Cypel', '52:21', 'zdjecie.jpg', 'picie', 'Troche nieleglane miejsce...', '')
 
+PomostOpis = 'Miejsce kreatywnego relaksu na Powiślu dla mieszkańców Warszawy i jej gości, strefa w której spotykają się różne środowiska, by wspólnie poimprezować i wypocząć. Atmosferę miejsca podgrzewa przyjemna muzyka nie zagłuszająca rozmów odpoczywających gości, a w weekendy mega imprezy dla wymagających klubowiczów. Pomost 511 to połączenie kulturalnej klubokawiarni i wodniackiego miejsca z przystanią na rzece i kameralną piaszczystą plażą.'
+Pomost511 = Miejsce('sdlfkj', 'Pomost 511', 52.229086, 21.0435052, 'Muzyka', PomostOpis, 0.jpg, 1.jpg, 2.jpg, 3.jpg, 1, '13:00', '4:00')
+
+PlazowaOpis = 'Plażowa / Pantai Warsaw / Miejskie Granie'
+Plazowa = Miejsce(Plz, 'Plażowa',  52.2378957, 21.0427988, 'Gastronomia', PlazowaOpis, 0.jpg, 1.jpg, 2.jpg, 3.jpg, 2, '11:00', '1:00')
+
 @app.route(app_url + '/places/warszawa')
 def wawa():
 	return Warszawa.get_places()
