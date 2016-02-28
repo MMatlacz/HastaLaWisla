@@ -102,14 +102,13 @@ hr {
 
 
 table {
-    border: 1px solid green;
+    border: none;
     border-collapse: collapse;
     width: 100%;
     margin-top: 220px;
 }
 
 td {
-    border: 1px solid green;
     width: 50%;
     height: 120px;
 }
@@ -135,7 +134,6 @@ td {
 
 #main-menu-table tr td p {
     text-align: center;
-
 }
 
 #bottom-menu {
@@ -197,7 +195,8 @@ td {
 }
 
 #logo {
-    width: 100%;
+    width: auto;
+    height: 200px;
 }
 
 #back-arrow {
