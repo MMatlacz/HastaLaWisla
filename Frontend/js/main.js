@@ -291,7 +291,9 @@ Handlebars.getTemplate = function (name) {
 var nowMode = function() {
     if (window.onlyNowOpened == true) {
         window.onlyNowOpened = false;
+        document.getElementById('now_icon').style.backgroundColor = '#C4E3F3';
     } else {
         window.onlyNowOpened = true;
+        document.getElementById('now_icon').style.backgroundColor = 'white';
     }
 }
