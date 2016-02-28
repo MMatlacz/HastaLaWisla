@@ -72,6 +72,7 @@ java_table = []
 for miejsce in lista_miejsc:
 	java_table.append(miejsce.get_places())
 
+
 @app.route(app_url + '/places/')
 def pmst():
 	return json.dumps(java_table)
