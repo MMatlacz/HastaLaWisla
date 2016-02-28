@@ -15,6 +15,7 @@
 <body>
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script src="js/shared/jquery.swipebox.min.js"></script>
+<script src="js/shared/jquery.loadTemplate-1.5.0.js"></script>
 <script src="js/shared/semantic.min.js"></script>
 <script src="js/shared/ui-bootstrap-tpls-0.14.3.js"></script>
 <script src="js/app.js"></script>
@@ -57,11 +58,11 @@
         </a>
 
         <div class="header">
-            <a href="#"><h1></h1></a>
+            <a href="#"><h1 data-content="name"></h1></a>
         </div>
 
         <div class="info">
-            <h3"></h3>
+            <h3 data-content="description"></h3>
 
             <p class="link-to-website"><a href=""></a></p>
 
@@ -132,6 +133,8 @@
         $( '.swipebox' ).swipebox();
 
     } )( jQuery );
+    $("body").loadTemplate($("#detail-screen-template"),
+            {name: 'Cud na Wisłą', description: 'Piękne, malownicze miejsce z napojami o przystępnych cenach.'});
 </script>
 </body>
 </html>
