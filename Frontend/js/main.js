@@ -155,6 +155,12 @@ function addMarker(place) {
             anchor: new google.maps.Point(10, 10),
             scaledSize: new google.maps.Size(30, 30)
         }
+    } else if (place['types'].indexOf('atm') > -1) {
+        image = {
+            url: "http://atmhero.com/wp-content/uploads/2015/12/icon-atm.png",
+            anchor: new google.maps.Point(10, 10),
+            scaledSize: new google.maps.Size(30, 30)
+        }
     }
     var marker = new google.maps.Marker({
         map: map,
@@ -168,7 +174,7 @@ function addMarker(place) {
                 console.error(status);
                 return;
             }
-            infoWindow.setContent('<p>' + result.name + '</p><p>' + result.vicinity + '</p>');
+            infoWindow.setContent('<a href="#" onclick="switchView(\'main\',\'details\');"><p>' + result.name + '</p><p>' + result.vicinity + '</p></a>');
             infoWindow.open(map, marker);
         });
     });

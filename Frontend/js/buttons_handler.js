@@ -78,3 +78,7 @@ initMap();
 $("#main-screen #header a").bind('click', function () {
     switchView('main', 'menu');
 });
+
+function changeATMicon(elem) {
+    elem.style.backgroundColor = '#C4E3F3';
+}
