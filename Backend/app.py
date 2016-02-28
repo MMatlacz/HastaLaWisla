@@ -7,7 +7,7 @@ from wsgiref import simple_server
 
 from flask import Flask
 
-app_url = ''
+app_url = 'matlaczm/appka'
 app = Flask(__name__)
 app.debug = True
 

@@ -14,7 +14,7 @@ var data_for_menu_view = {
     music_and_dance_label: 'Muzyka & Taniec',
     info_label: 'Informacje praktyczne',
     nature_label: 'Natura',
-    costam_label: 'Cośtam'
+    inne_label: 'Inne'
 
 };
 

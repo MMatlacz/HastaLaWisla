@@ -1,7 +1,5 @@
-
-
 var places = {};
-
+var atm = false;
 var markerTemp;
 var type;
 var map;
@@ -86,6 +84,16 @@ var getDistance = function (p1, p2) {
 };
 
 function performSearch() {
+    var atms;
+    var container = [];
+    if (atm) {
+        atms = {
+            bounds: map.getBounds(),
+            type: 'atm',
+            openNow: true
+        };
+        container.push(atms)
+    }
     var bar = {
         bounds: map.getBounds(),
         type: 'bar',
@@ -98,7 +106,8 @@ function performSearch() {
         openNow: true
 
     };
-    var container = [bar, restaurant];
+    container.push(bar);
+    container.push(restaurant);
     for (con in container) {
         service.nearbySearch(container[con], callback);
     }
@@ -137,6 +146,12 @@ function addMarker(place) {
     } else if (place['types'].indexOf('restaurant') > -1) {
         image = {
             url: "https://maxcdn.icons8.com/iOS7/PNG/25/City/restaurant_membership_card-25.png",
+            anchor: new google.maps.Point(10, 10),
+            scaledSize: new google.maps.Size(30, 30)
+        }
+    } else if (place['types'].indexOf('atm') > -1) {
+        image = {
+            url: "http://atmhero.com/wp-content/uploads/2015/12/icon-atm.png",
             anchor: new google.maps.Point(10, 10),
             scaledSize: new google.maps.Size(30, 30)
         }
