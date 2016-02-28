@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initMap();
 });
 
+var markerTemp;
 var type;
 var map;
 var service;
@@ -39,6 +40,35 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow();
 
     map.addListener('idle', performSearch);
+
+    // Bounds for North America
+    var strictBounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(52.288099, 21.000600),
+        new google.maps.LatLng(52.203213, 21.064822)
+    );
+
+    // Listen for the dragend event
+    google.maps.event.addListener(map, 'dragend', function () {
+        if (strictBounds.contains(map.getCenter())) return;
+
+        // We're out of bounds - Move the map back within the bounds
+
+        var c = map.getCenter(),
+            x = c.lng(),
+            y = c.lat(),
+            minX = strictBounds.getSouthWest().lng(),
+            minY = strictBounds.getSouthWest().lat(),
+            maxX = strictBounds.getNorthEast().lng(),
+            maxY = strictBounds.getNorthEast().lat();
+        console.log(minX, maxX, minY, maxY);
+
+        if (x < minX) x = minX;
+        if (x > maxX) x = maxX;
+        if (y < maxY) y = maxY;
+        if (y > minY) y = minY;
+
+        map.setCenter(new google.maps.LatLng(y, x));
+    });
 }
 
 var rad = function (x) {
@@ -70,7 +100,7 @@ function performSearch() {
 
     };
     var container = [bar, restaurant];
-    for(con in container) {
+    for (con in container) {
         service.nearbySearch(container[con], callback);
     }
 }
@@ -89,6 +119,7 @@ function callback(results, status) {
                 break;
             }
             if ((getDistance(riverCenter[loc], result.geometry.location) < 600)) {
+                console.log(result);
                 addMarker(result);
                 con = false;
             }
@@ -98,17 +129,17 @@ function callback(results, status) {
 
 function addMarker(place) {
     var image;
-    if(place['types'].indexOf('bar') > -1){
+    if (place['types'].indexOf('bar') > -1) {
         image = {
-            url: 'http://yorkshirehogroast.com/wp-content/uploads/2014/05/Catering-Bar-icon.png',
-                anchor: new google.maps.Point(10, 10),
-                scaledSize: new google.maps.Size(30, 30)
+            url: "https://maxcdn.icons8.com/Color/PNG/24/Food/bar-24.png",
+            anchor: new google.maps.Point(10, 10),
+            scaledSize: new google.maps.Size(30, 30)
         }
-    } else if(place['types'].indexOf('restaurant') > -1){
+    } else if (place['types'].indexOf('restaurant') > -1) {
         image = {
-            url: 'https://cdn3.iconfinder.com/data/icons/map/500/restaurant-512.png',
-                anchor: new google.maps.Point(10, 10),
-                scaledSize: new google.maps.Size(30, 30)
+            url: "https://maxcdn.icons8.com/iOS7/PNG/25/City/restaurant_membership_card-25.png",
+            anchor: new google.maps.Point(10, 10),
+            scaledSize: new google.maps.Size(30, 30)
         }
     }
     var marker = new google.maps.Marker({
@@ -123,11 +154,74 @@ function addMarker(place) {
                 console.error(status);
                 return;
             }
-            infoWindow.setContent(result.name);
+            infoWindow.setContent('<p>' + result.name + '</p><p>' + result.vicinity + '</p>');
             infoWindow.open(map, marker);
         });
     });
+
+    var longpress = false;
+    google.maps.event.addListener(map, 'click', function (event) {
+        if (longpress) {
+            console.log('longpress');
+            addCustomMarker(event.latLng)
+        } else {
+            console.log('shortpress');
+        }
+    });
+    google.maps.event.addListener(map, 'mousedown', function () {
+
+        start = new Date().getTime();
+    });
+    google.maps.event.addListener(map, 'mouseup', function () {
+        end = new Date().getTime();
+        longpress = (end - start >= 500);
+    });
 }
+
+readURL = function () {
+    input = $('[name=obraz]')[0];
+    tekst = $('[name=text]')[0];
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#blah')
+                .attr('src', e.target.result)
+                .css('width','100px', 'height', 'auto')
+
+        };
+        reader.readAsDataURL(input.files[0]);
+        $('#descr')
+            .text(tekst.value)
+    }
+};
+
+
+accept = function (o) {
+    console.log(o);
+    o.parentElement.children[0].remove();
+    o.parentElement.children[0].remove();
+    $('#temp').removeClass('col-md-6');
+    $('#temp').addClass('col-md-12');
+    /*
+    google.maps.event.addListener(markerTemp, 'click', function () {
+        infoWindow.setContent(o.parentElement.children[0]);
+        infoWindow.open(map, markerTemp);
+    });
+    */
+
+};
+addCustomMarker = function (latLng) {
+    var marker = new google.maps.Marker({
+        map: map,
+        position: latLng
+    });
+    //markerTemp = marker;
+    google.maps.event.addListener(marker, 'click', function () {
+        console.log($('#plate').html());
+        infoWindow.setContent($('#plate').html());
+        infoWindow.open(map, marker);
+    });
+};
 
 Handlebars.getTemplate = function(name) {
     if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
