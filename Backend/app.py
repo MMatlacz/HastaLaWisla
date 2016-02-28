@@ -48,26 +48,27 @@ class Miejsce:
 		#json.dumps(obj)
 
 PomostOpis = 'Miejsce kreatywnego relaksu na Powiślu dla mieszkańców Warszawy i jej gości, strefa w której spotykają się różne środowiska, by wspólnie poimprezować i wypocząć. Atmosferę miejsca podgrzewa przyjemna muzyka nie zagłuszająca rozmów odpoczywających gości, a w weekendy mega imprezy dla wymagających klubowiczów. Pomost 511 to połączenie kulturalnej klubokawiarni i wodniackiego miejsca z przystanią na rzece i kameralną piaszczystą plażą.'
-Pomost511 = Miejsce('sdlfkj', 'Pomost 511', '52.229086', '21.0435052', 'Muzyka', PomostOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 1, '13:00', '4:00')
+Pomost511 = Miejsce('Pomost511', 'Pomost 511', '52.229086', '21.0435052', 'Muzyka', PomostOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 'Tanio', '13:00', '4:00')
 
 PlazowaOpis = 'Plażowa / Pantai Warsaw / Miejskie Granie'
-Plazowa = Miejsce('Plz', 'Plazowa',  '52.2378957', '21.0427988', 'Gastronomia', PlazowaOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 2, '11:00', '1:00')
+Plazowa = Miejsce('Plazowa', 'Plazowa',  '52.2378957', '21.0427988', 'Gastronomia', PlazowaOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', "Przystępnie", '11:00', '1:00')
 
 Park_linowyOpis = 'Parki Linowy Warszawa to specjalnie przygotowany teren dla zabaw z użyciem lin. U nas bawić się mogą ludzie bez żadnego doświadczenia w tym kierunku, zarówno dzieci, młodzież jak i dorośli. Zapewniamy niezapomniane wrażenia, adrenalinę i zabawę na świeżym powietrzu. Proponujemy organizację urodzin dla dzieci, wieczorów panieńskich i kawalerskich. Imprezy integracyjne dla firm.'
-Park_linowy = Miejsce('Prklnw', 'Park linowy', '52.2546913', '21.0209791', 'Ruch', Park_linowyOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 2, '9:00', '23:00')
+Park_linowy = Miejsce('Park_linowy', 'Park linowy', '52.2546913', '21.0209791', 'Ruch', Park_linowyOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', "Przystępnie", '9:00', '23:00')
 
 Wyspy_zawadowskieOpis = 'Na południu Warszawy znajduje się rezerwat Wyspy Zawadowskie. Zlokalizowany jest on na Wiśle w obrębie dwóch dzielnic: Wawra oraz Wilanowa. Obszar rezerwatu wykracza również poza granice Warszawy i zajmuje część gminy Konstancin - Jeziorna oraz miasta Józefów. Rezerwat został utworzony 23.12.1998 roku. Obszar chroniony ma powierzchnię 530,28 ha. Głównym celem powołania do życia rezerwatów była ochrona ekosystemów wodnych w obrębie koryta Wisły. Chroniony obszar jest miejscem gniazdowania wielu rzadkich i cennych gatunków ptaków, jak również stanowi ostoję zwierząt związanych ze środowiskiem wodnym.'
-Wyspy_zawadowskie = Miejsce('WspZdwk', 'Wyspy Zawadowskie', '52.135795', '21.1838098', 'Natura', Wyspy_zawadowskieOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 0, '6:00', '23:00')
+Wyspy_zawadowskie = Miejsce('Wyspy_zawadowskie', 'Wyspy Zawadowskie', '52.135795', '21.1838098', 'Natura', Wyspy_zawadowskieOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', "Za darmo", '6:00', '23:00')
 
 HockiKlockiOpis = "Założeniem klubu jest powrót do krainy dzieciństwa. Hocki Klocki znajdują się przy Bulwarze Flotylli Wiślanej, w niedalekim sąsiedztwie ulicy Ludnej.W otoczeniu drzew i z kawałkiem plaży- idealna przestrzeń do wakacyjnego relaksu."
-HockiKlocki = Miejsce("HckKlck","Hocki Klocki","52.232311" ,"21.041103","Muzyka", HockiKlockiOpis,"0.jpg","1.jpg","2.jpg","3.jpg","1","11:00","2:00")
+HockiKlocki = Miejsce("HockiKlocki","Hocki Klocki","52.232311" ,"21.041103","Muzyka", HockiKlockiOpis,"0.jpg","1.jpg","2.jpg","3.jpg","Tanio","11:00","2:00")
 
 CudNadWislaOpis = "Bez wahania można powiedzieć, że to Cud nad Wisłą zapoczątkował tradycję spędzania długich wieczorów przy zacnej muzyce nad samą rzeką. Cud jest z nami już od pięciu lat i ani myśli, mimo pojawiających się co roku mocnych konkurentów, wynosić znad Wisły."
-CudNadWisla = Miejsce("CdNdWsl","Cud Nad Wisłą","52.228424", "21.044472","Muzyka", CudNadWislaOpis,"0.jpg","1.jpg","2.jpg","3.jpg","1","15:00","2:00")
+CudNadWisla = Miejsce("CudNadWisla","Cud Nad Wisłą","52.228424", "21.044472","Muzyka", CudNadWislaOpis,"0.jpg","1.jpg","2.jpg","3.jpg","Tanio","15:00","2:00")
 
+Plaza_z_ogniskamiOpis = 'Plaża miejska z kilkoma miejscami pod ogniska. Wspaniałe miejsce na wieczorne ognisko przy zachodzie słońca z widokiem na Stare Miasto.'
+Plaza_z_ogniskami = Miejsce('Plaza_z_ogniskami', 'Plaża z Ogniskami', '52.2349795' , '21.0437078,19', "0.jpg","1.jpg","2.jpg","3.jpg","Za darmo","0:01","23:59")
 
-
-lista_miejsc = [Pomost511, Plazowa, Park_linowy, Wyspy_zawadowskie, HockiKlocki, CudNadWisla]
+lista_miejsc = [Pomost511, Plazowa, Park_linowy, Wyspy_zawadowskie, HockiKlocki, CudNadWisla, Plaza_z_ogniskami]
 
 java_table = []
 
@@ -87,3 +88,4 @@ def pmst():
 if __name__ == '__main__':
     httpd = simple_server.make_server('127.0.0.1', 5000, app)
     httpd.serve_forever()
+
