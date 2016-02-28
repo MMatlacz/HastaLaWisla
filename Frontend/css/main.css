@@ -207,8 +207,10 @@ td {
 }
 
 #logo {
-    width: auto;
-    height: 200px;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    max-width: 400px;
 }
 
 #back-arrow {
