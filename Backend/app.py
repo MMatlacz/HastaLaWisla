@@ -44,8 +44,8 @@ class Miejsce:
 		obj['cena'] = self.cena
 		obj['otwarcie'] = self.otwarcie
 		obj['zamkniecie'] = self.zamkniecie
-
-		return json.dumps(obj)
+		return obj
+		#json.dumps(obj)
 
 PomostOpis = 'Miejsce kreatywnego relaksu na Powiślu dla mieszkańców Warszawy i jej gości, strefa w której spotykają się różne środowiska, by wspólnie poimprezować i wypocząć. Atmosferę miejsca podgrzewa przyjemna muzyka nie zagłuszająca rozmów odpoczywających gości, a w weekendy mega imprezy dla wymagających klubowiczów. Pomost 511 to połączenie kulturalnej klubokawiarni i wodniackiego miejsca z przystanią na rzece i kameralną piaszczystą plażą.'
 Pomost511 = Miejsce('sdlfkj', 'Pomost 511', '52.229086', '21.0435052', 'Muzyka', PomostOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 1, '13:00', '4:00')
@@ -57,27 +57,26 @@ Park_linowyOpis = 'Parki Linowy Warszawa to specjalnie przygotowany teren dla za
 Park_linowy = Miejsce('Prklnw', 'Park linowy', '52.2546913', '21.0209791', 'Ruch', Park_linowyOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 2, '9:00', '23:00')
 
 Wyspy_zawadowskieOpis = 'Na południu Warszawy znajduje się rezerwat Wyspy Zawadowskie. Zlokalizowany jest on na Wiśle w obrębie dwóch dzielnic: Wawra oraz Wilanowa. Obszar rezerwatu wykracza również poza granice Warszawy i zajmuje część gminy Konstancin - Jeziorna oraz miasta Józefów. Rezerwat został utworzony 23.12.1998 roku. Obszar chroniony ma powierzchnię 530,28 ha. Głównym celem powołania do życia rezerwatów była ochrona ekosystemów wodnych w obrębie koryta Wisły. Chroniony obszar jest miejscem gniazdowania wielu rzadkich i cennych gatunków ptaków, jak również stanowi ostoję zwierząt związanych ze środowiskiem wodnym.'
-Wyspy_zawadowskie = Miejsce('WspZdwk', 'Wyspy Zawadowskie', '52.135795', '21.1838098', 'Natura', Wyspy_zawadowskieOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 0, '6:00', '23:00'
+Wyspy_zawadowskie = Miejsce('WspZdwk', 'Wyspy Zawadowskie', '52.135795', '21.1838098', 'Natura', Wyspy_zawadowskieOpis, '0.jpg', '1.jpg', '2.jpg', '3.jpg', 0, '6:00', '23:00')
+
+lista_miejsc = [Pomost511, Plazowa, Park_linowy, Wyspy_zawadowskie]
+
+java_table = []
+
+for miejsce in lista_miejsc:
+	java_table.append(miejsce.get_places())
+
+#print json.dumps(java_table)
 
 
-@app.route(app_url + '/places/pomost511')
+@app.route(app_url + '/places/')
 def pmst():
-	return Pomost511.get_places()
+	return json.dumps(java_table)
 
-@app.route(app_url + '/places/plazowa')
-def plzw():
-	return Plazowa.get_places()
-
-@app.route(app_url + '/places/park_linowy')
-def prkln():
-	return Park_linowy.get_places()
-
-@app.route(app_url + '/places/wyspy_zawadowskie')
-def wspzwdsk():
-	return Wyspy_zawadowskie.get_places()
 
 
 
 if __name__ == '__main__':
     httpd = simple_server.make_server('127.0.0.1', 5000, app)
     httpd.serve_forever()
+
