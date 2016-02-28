@@ -19,7 +19,6 @@
 <script src="js/shared/handlebars-v4.0.5.js"></script>
 <script src="js/shared/semantic.min.js"></script>
 
-<script src="js/app.js"></script>
 <script src="js/main.js"></script>
 <script src="js/buttons_handler.js"></script>
 
@@ -57,7 +56,7 @@
         else if (view == 'menu')
             return data_for_menu_view;
         else
-        return null;
+            return null;
     };
 
     var switchView = function(from, to) {
@@ -86,14 +85,13 @@
 
         } else if (from == 'details' && to == 'main') {
 
-        } else if (from == '' && to == 'main') {
-            $("#main-screen #header a").bind('click', function () {
-                switchView('main', 'menu');
-            });
         }
     };
 
     switchView('','main');
+    $("#main-screen #header a").bind('click', function () {
+        switchView('main', 'menu');
+    });
 
 </script>
 </body>
