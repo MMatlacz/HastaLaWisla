@@ -268,3 +268,7 @@ a#back-link {
 .hours img, .price img, .jakdojade img {
     margin-bottom: 7px;
 }
+
+#now_icon {
+    background-color: #C4E3F3;
+}
